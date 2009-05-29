@@ -1,0 +1,13 @@
+body { margin: 0;}
+h1, h2, h3, h4, h5, h6 { font-family: 'Helvetica'; }
+
+/* HEADER STYLING */
+#header { border-bottom: 2px solid black; padding: 5px 10px 0; }
+#header h1 a { text-decoration: none; }
+
+/* CONTENT AREA STYLING */
+#content { padding: 0 20px;}
+
+#content table { width: 60em; }
+#content table td { padding: 3px; }
+#content table tr.even { background: #eeeeee; }
