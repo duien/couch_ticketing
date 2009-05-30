@@ -2,21 +2,24 @@ require 'rubygems'
 require 'sinatra'
 require 'erb'
 require 'couchrest'
+#require 'yaml'
 
 # let's not worry about logging in for right now
 
-@@db = CouchRest.new("http://127.0.0.1:5984").database('ticketing')
-set :environment, :development
-set :app_file, __FILE__
-set :reload, true
-
-helpers do
-  def cycle(values) # you can only have one cycle going at a time
-    @count ||= 0
-    @count = (@count + 1)%values.length
-    values[@count-1]
-  end
+configure :development do
+  set :environment, :development
+  set :app_file, __FILE__
+  set :reload, true
 end
+
+configure do
+  @@config = YAML.load(File.open( 'config.yml' ))
+  @@db = CouchRest.database(@@config['database'])
+end
+
+# Load all helpers from the lib directory
+load 'lib/helper.rb'
+Dir["lib/*-helper.rb"].each { |f| load f }
 
 get '/' do
   redirect '/tickets/?status=open'
