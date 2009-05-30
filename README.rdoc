@@ -1,0 +1,3 @@
+== Couch Ticketing: Ticketing with CouchDB
+
+Couch Ticketing is designed to be an obscenely flexible ticketing system. It was born from my never-ending frustration with Best Practical's Request Tracker. Right now, it doesn't really do anything. Especially not if you don't have a database, and I haven't documented what that database should look like yet. More to come later.
