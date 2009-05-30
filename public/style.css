@@ -11,3 +11,10 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Helvetica'; }
 #content table { width: 60em; }
 #content table td { padding: 3px; }
 #content table tr.even { background: #eeeeee; }
+
+/* OTHER */
+.resolved .ticket-subject { text-decoration: line-through; }
+
+.status { font-size: 80%; font-family: 'Helvetica'; color: white; padding: 3px; font-weight: bold; }
+.open .status { background: red;  }
+.resolved .status { background: green; }
