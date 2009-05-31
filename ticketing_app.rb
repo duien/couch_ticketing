@@ -34,15 +34,28 @@ class Ticketing < Sinatra::Base
   end
 
   get '/tickets/:id' do
+    @template = @@db.view('schema/templates', :key => 'ticket')['rows'].first['value']
     @ticket = @@db.get(params[:id])
     erb :'tickets/show'
+  end
+  
+  post '/tickets/:id' do
+    begin
+      result = @@db.save_doc(params[:ticket])
+      result.inspect
+    rescue
+      'fail!'
+    end
   end
 
   get '/tickets/:id/edit' do
     @ticket = @@db.get(params[:id])
-    raw_field_values = @@db.view('schema/values_for_field', :group => true)['rows']
-    @field_values = {}
-    raw_field_values.each { |hash| @field_values[hash['key']] = hash['value'] }
+    
+    @template = @@db.view('schema/templates', :key => 'ticket')['rows'].first['value']
+    raw_field_values_for_type = @@db.view('schema/values_for_field_per_type', 
+        :group => true, :startkey => ['ticket'], :endkey => ['ticket', {}] )['rows']
+    raw_field_values_for_type.each { |hash| @template[hash['key'][1]]['values'] = hash['value'] }
+    
     erb :'tickets/edit'
   end
 end

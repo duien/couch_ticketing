@@ -17,7 +17,7 @@ a { color: #5e9ec0; }
 #header { border-bottom: 2px solid black; padding: 5px 10px 0; }
 #header h1 a { text-decoration: none; }
 
-#test-meta { border-bottom: 2px solid black; padding: 2px 5px; font-family: "Consolas"; font-size: 80%; }
+.test-meta { border-bottom: 2px solid black; padding: 2px 5px; font-family: "Consolas"; font-size: 80%; }
 
 /* CONTENT AREA STYLING */
 #content { padding: 0 20px;}

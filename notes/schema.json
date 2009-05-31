@@ -16,6 +16,12 @@
 { _id: "...",
   _rev: "...",
   _type: "ticket_template",
-  status: { "form": "select", "edit": "true", "type": "string" },
-  subject: {  "form": "text", "edit": "false", "type": "string" }
+  status: { "form": "select", 
+            "edit": "true", 
+            "type": "string",
+            "sort": 2 },
+  subject: {  "form": "text", 
+              "edit": "false", 
+              "type": "string",
+              "sort": 1 }
 }
