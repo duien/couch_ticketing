@@ -1,4 +1,19 @@
-def form_for( ticket, template )
+def show_ticket( ticket, template )
+  output =  %Q{<table id="ticket" border="0" cellpadding="0" cellspacing="0">\n}
+  template.keys.sort{ |a,b| template[a]['sort'].to_i <=> template[b]['sort'].to_i }.each do |field|
+    next if field =~ /^_.*$/
+    # TODO: This will be different if value type isn't "string"
+    output << %Q{<tr>
+      <td style="text-align:right"><strong>#{field.capitalize}</strong></td>
+      <td>#{ticket[field]}</td>
+    </tr>}
+  end
+  output << %Q{</table>
+  <a href="/tickets/#{ticket['_id']}/edit">Edit</a>}
+  output
+end
+
+def form_for_ticket( ticket, template )
   output = %Q{<form method="post" action="/tickets/#{ticket['_id']}">
   <table id="edit ticket" border="0" cellpadding="0" cellspacing="0">\n}
   
@@ -27,8 +42,10 @@ def form_for( ticket, template )
       output << "</td>\n</tr>"
     end
   end
+    # TODO: Make cancel button do something
     output << %q{</table>
   <input type="submit" value="Save" />
   <input type="button" value="Cancel" />
   </form>}
+  output
 end
