@@ -1,0 +1,21 @@
+{ _id: "...",
+  _rev: "...",
+  _type: "ticket",
+  status: "open",
+  subject: "An open ticket"
+}
+
+{ _id: "...",
+  _rev: "...",
+  _type: "transaction",
+  ticket_id: "...",
+  change: [{ "field": "status", "old_value": "new", "new_value": "open" }]
+  comment: "Opening the ticket to start working on it."
+}
+
+{ _id: "...",
+  _rev: "...",
+  _type: "ticket_template",
+  status: { "form": "select", "edit": "true", "type": "string" },
+  subject: {  "form": "text", "edit": "false", "type": "string" }
+}
