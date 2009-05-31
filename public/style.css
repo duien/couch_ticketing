@@ -1,21 +1,38 @@
+/* AWESOME COLORS
+   gray: #747989
+   orange: #de722c
+   yellow: #ffc367
+   green: #9bc55b
+   pale blue: #d1cfff
+   blue: #5e9ec0
+   red: #f63935
+*/
+
+
 body { margin: 0;}
 h1, h2, h3, h4, h5, h6 { font-family: 'Helvetica'; }
+a { color: #5e9ec0; }
 
 /* HEADER STYLING */
 #header { border-bottom: 2px solid black; padding: 5px 10px 0; }
 #header h1 a { text-decoration: none; }
+
+#test-meta { border-bottom: 2px solid black; padding: 2px 5px; font-family: "Consolas"; font-size: 80%; }
 
 /* CONTENT AREA STYLING */
 #content { padding: 0 20px;}
 
 #content table { width: 60em; }
 #content table td { padding: 3px; }
-#content table tr.even { background: #eeeeee; }
+#content table tr.even { background: #f8f8f8; }
 
 /* OTHER */
-.resolved .ticket-subject { text-decoration: line-through; }
+/* .resolved .ticket-subject { text-decoration: line-through; }
+.rejected .ticket-subject { text-decoration: line-through; } */
 
 .status { font-size: 80%; font-family: 'Helvetica'; color: white; padding: 3px; font-weight: bold; }
-.open .status { background: red;  }
-.resolved .status { background: green; }
-.new .status { background: blue; }
+.new .status { background: #f63935; }
+.open .status { background: #5e9ec0;  }
+.resolved .status { background: #9bc55b; }
+.rejected .status { background: #747989; }
+.blocked .status { background: #de722c; }
