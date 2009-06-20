@@ -24,7 +24,7 @@ a { color: #5e9ec0; }
 
 #content table { width: 60em; }
 #content table td { padding: 3px; }
-#content table tr.even { background: #f8f8f8; }
+#content table tr.even { background: #eeeeee; }
 
 /* OTHER */
 /* .resolved .ticket-subject { text-decoration: line-through; }
